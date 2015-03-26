@@ -1,12 +1,27 @@
 #header {
-    background: none repeat scroll 0 0 #000;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-    height: 50px;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
+    background: none repeat scroll 0 0 #fff;
+    /*box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);*/
+    box-shadow: 0 5px 0 rgba(21, 109, 141, 0.3);
+    height: 70px;
+    position: relative;
+    /*width: 100%;*/
+    z-index: 100;
 }
-a.ciat {
+
+/*#header {
+    box-shadow: 0 5px 0 rgba(21, 109, 141, 0.3);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#header {
+    background: none repeat scroll 0 0 #fff;
+    height: 134px;
+    position: relative;
+    z-index: 100;
+}*/
+
+/*a.ciat {
     background: url("../img/title.png") no-repeat scroll 0 0 transparent;
     display: block;
     height: 50px;
@@ -15,13 +30,13 @@ a.ciat {
     text-indent: -999em;
     width: 624px;
     bottom: 7px;
-}
-#share {
+}*/
+/*#share {
     position: absolute;
     right: 3px;
     top: 14px;
-}
-.title {
+}*/
+/*.title {
     color: #b3b3b3;
     display: block;
     font-family: "AlternateGothicLTNo3Regular",Arial,sans-serif;
@@ -33,8 +48,8 @@ a.ciat {
     padding: 5px 20px 5px 10px;
     text-transform: uppercase;
     transition: color 0.3s linear 0s;
-}
-.legend-title {
+}*/
+/*.legend-title {
     text-align: left;
     margin-bottom: 5px;
     font-weight: bold;
@@ -88,15 +103,18 @@ hr {
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
+}*/
+
+
 #map {
     position: absolute;
     width: 100%;
-    top: 50px;
+    top: 70px;
     bottom: 79px;
     overflow: hidden;
     cursor: default;
 }
+
 #footer {
     background-color: #fff;
     border-bottom: 7px solid black;
@@ -112,6 +130,7 @@ hr {
     position: absolute;
     width: 100%;
 }
+
 #footer p {
     /*color: #383128;*/
     font-family: Arial, Helvetica, sans-serif;
