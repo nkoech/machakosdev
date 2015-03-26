@@ -1,4 +1,4 @@
-var m_jericanused = {[
+var m_jericanused = {"type":"FeatureCollection","features":[
     {
         "resname": "James Makau",
         "lon": 37.25818,
