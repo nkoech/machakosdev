@@ -17,65 +17,57 @@ var app = (function(){
             }).setView([-1.2139,37.5320], 9);
         },
 
-        getMapComponent: function() {
+        setMapLayers: function() {
 
-            //Set layers
+            //Set layers object
             layers = {
                 basemap: L.mapbox.tileLayer('nkoech.c858c345').addTo(map),
-                m_jericanused: L.geoJson(m_jericanused),
+                m_watertype: L.geoJson(m_watertype),
+                m_watercost: L.geoJson(m_watercost),
+                m_waterdist: L.geoJson(m_waterdist),
                 m_storetank: L.geoJson(m_storetank),
-                m_watercost: L.geoJson(m_watercost)
+                m_jericanused: L.geoJson(m_jericanused)
             };
-            /*m_waterdist: L.geoJson(m_waterdist),
-             m_watertype: L.geoJson(m_watertype)*/
         },
 
        mapComponent: function() {
 
-            //Add initial data, grid and controls to map
-            layers.basemap.addTo(map);
-            //layers.m_jericanused.addTo(map);
-            //layers.m_storetank.addTo(map);
-            //layers.m_watercost.addTo(map);
-            //layers.m_waterdist.addTo(map);
-            //layers.m_watertype.addTo(map);
-
-            households.addMapComponent(layers.m_jericanused, 'm_jericanused', 'Jerican Used', 1);
-            households.addMapComponent(layers.m_storetank, 'm_storetank', 'Store Tank', 2);
-            households.addMapComponent(layers.m_watercost, 'm_watercost', 'Cost of Water', 3);
+           layers.basemap.addTo(map); //Add base layer
+           households.setMapComponent(layers.m_watertype, 'm_watertype', 'Water Source Type', 1);
+           households.setMapComponent(layers.m_watercost, 'm_watercost', '20L Jerrican Cost', 2);
+           households.setMapComponent(layers.m_waterdist, 'm_waterdist', 'Water Source Distance', 3);
+           households.setMapComponent(layers.m_storetank, 'm_storetank', 'Storage Tank Access', 4);
+           households.setMapComponent(layers.m_jericanused, 'm_jericanused', 'Jericans Used Daily', 5);
         },
 
-        addMapComponent: function(fLayer, elId, name, zIndex){
-            var layersList = document.getElementById('menu-ui');
-            var link = document.createElement('a');
+        setMapComponent: function(fLayer, elId, name, zIndex){
+            var elMenu = document.getElementById('menu-ui');
+            var elLink = document.createElement('a');
 
             if(zIndex == 1){
-                fLayer.setZIndex(zIndex).addTo(map);
-                link.href = '#';
-                link.id = elId;
-                link.className = 'active';
-                link.innerHTML = name;
+                fLayer.setZIndex(zIndex).addTo(map); // Add initial feature layer
+                elLink.href = '#';
+                elLink.id = elId;
+                elLink.className = 'active';
+                elLink.innerHTML = name;
             }else{
-                link.href = '#';
-                link.id = elId;
-                link.className = '';
-                link.innerHTML = name;
+                elLink.href = '#';
+                elLink.id = elId;
+                elLink.className = '';
+                elLink.innerHTML = name;
             }
 
             // Create a simple layer switcher that
             // toggles layers on and off.
-            link.onclick = function(e) {
+            elLink.onclick = function(e) {
+                var elMenuUi = map.getContainer().querySelector(".menu-ui"); // Get ".menu-ui" class
+                var elAll = elMenuUi.querySelectorAll(".active"); // Get ".active" class
+
                 e.preventDefault();
                 e.stopPropagation();
-
                 if(this.className != "active"){
-
-                    elMenuUi = map.getContainer().querySelector(".menu-ui");
-                    elAll = elMenuUi.querySelectorAll(".active");
-
                     for (i = 0; i < elAll.length; i++) {
-                        map.removeLayer(layers[elAll[i].id]);
-                        //console.log(elAll[i].id);
+                        map.removeLayer(layers[elAll[i].id]); // Remove feature layer
                         elAll[i].className = '';
                     }
 
@@ -87,7 +79,7 @@ var app = (function(){
                 }
             };
 
-            layersList.appendChild(link);
+            elMenu.appendChild(elLink); // Append the new style to parent element "mrnu-ui"
         }
     };
 
@@ -95,5 +87,5 @@ var app = (function(){
 })();
 
 app.initMap();
-app.getMapComponent();
+app.setMapLayers();
 app.mapComponent();
