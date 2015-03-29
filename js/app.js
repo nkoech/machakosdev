@@ -3,7 +3,7 @@
  */
 
 var app = (function(){
-    var households = {
+    var waterAccess = {
 
         initMap: function() {
 
@@ -74,7 +74,7 @@ var app = (function(){
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(
                                 latlng,
-                                households.setCircleStyle(6, households.setFillColor(feature.properties.water_type, "m_watertype"), "#fff", 3, 1)
+                                waterAccess.setCircleStyle(6, waterAccess.setFillColor(feature.properties.water_type, "m_watertype"), "#fff", 3, 1)
                         )
                     }
                 }),
@@ -83,7 +83,7 @@ var app = (function(){
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(
                                 latlng,
-                                households.setCircleStyle(households.setProportionalSymbol(feature.properties.water_cost, 30, 35, 40, 45), "#ff0000", "#fff", 3, 1)
+                                waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.water_cost, 30, 35, 40, 45), "#ff0000", "#fff", 3, 1)
                         )
                     }
                 }),
@@ -92,7 +92,7 @@ var app = (function(){
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(
                             latlng,
-                            households.setCircleStyle(households.setProportionalSymbol(feature.properties.dist_water, 3, 6, 9, 12), "#800080", "#fff", 3, 1)
+                            waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.dist_water, 3, 6, 9, 12), "#800080", "#fff", 3, 1)
                         )
                     }
                 }),
@@ -100,7 +100,7 @@ var app = (function(){
                 m_storetank: L.geoJson(m_storetank, {
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(latlng,
-                            households.setCircleStyle(6, households.setFillColor(feature.properties.store_tank, "m_storetank"), "#fff", 3, 1)
+                            waterAccess.setCircleStyle(6, waterAccess.setFillColor(feature.properties.store_tank, "m_storetank"), "#fff", 3, 1)
                         )
                     }
                 }),
@@ -109,7 +109,7 @@ var app = (function(){
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(
                             latlng,
-                            households.setCircleStyle(households.setProportionalSymbol(feature.properties.jericans_used, 3, 5, 7, 9), "#800000", "#fff", 3, 1)
+                            waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.jericans_used, 3, 5, 7, 9), "#800000", "#fff", 3, 1)
                         )
                     }
                 })
@@ -118,11 +118,11 @@ var app = (function(){
 
         mapComponent: function(){
             layers.basemap.addTo(map); //Add base layer
-            households.setMapComponent(layers.m_watertype, 'm_watertype', 'Water Source Type', 1);
-            households.setMapComponent(layers.m_watercost, 'm_watercost', '20L Jerrican Cost', 2);
-            households.setMapComponent(layers.m_waterdist, 'm_waterdist', 'Water Source Distance', 3);
-            households.setMapComponent(layers.m_storetank, 'm_storetank', 'Storage Tank Access', 4);
-            households.setMapComponent(layers.m_jericanused, 'm_jericanused', 'Jericans Used Daily', 5);
+            waterAccess.setMapComponent(layers.m_watertype, 'm_watertype', 'Water Source Type', 1);
+            waterAccess.setMapComponent(layers.m_watercost, 'm_watercost', '20L Jerrican Cost', 2);
+            waterAccess.setMapComponent(layers.m_waterdist, 'm_waterdist', 'Water Source Distance', 3);
+            waterAccess.setMapComponent(layers.m_storetank, 'm_storetank', 'Storage Tank Access', 4);
+            waterAccess.setMapComponent(layers.m_jericanused, 'm_jericanused', 'Jericans Used Daily', 5);
         },
 
         setMapComponent: function(fLayer, elId, name, zIndex){
@@ -168,7 +168,7 @@ var app = (function(){
         }
     };
 
-    return households;
+    return waterAccess;
 })();
 
 app.initMap();
