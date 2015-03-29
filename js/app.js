@@ -14,7 +14,54 @@ var app = (function(){
             map = L.mapbox.map('map', null, {
                 maxZoom: 19,
                 minZoom: 9
-            }).setView([-1.2139,37.5320], 9);
+            }).setView([-1.4462651532861726,37.3260498046875], 11);
+        },
+
+        setCircleStyle: function(a, b, c, d, e){
+            var circleStyle = {
+                radius: a,
+                fillColor: b,
+                color: c,
+                weight: d,
+                fillOpacity: e
+            };
+
+            return circleStyle;
+        },
+
+        setFillColor: function(a, b){
+            if(b == "m_watertype"){
+                switch (a) {
+                    case 'Dam': return "#1E90FF";
+                    case 'River':   return "#ff0000";
+                    case 'Well': return "#800080";
+                    case 'Pond':   return "#008000";
+                    case 'Springs':   return "#0000A0";
+                    case 'Water Harvesting': return "#800000";
+                }
+            }else if(b == "m_storetank"){
+                switch (a) {
+                    case 'Yes': return "#0000A0";
+                    case 'No':   return "#ff0000";
+                }
+            }else{
+                return false;
+            }
+        },
+
+        setProportionalSymbol: function(a, b, c, d, e){
+
+            if (a < b){
+                return 4
+            }else if(a >= b && a < c){
+                return 7
+            }else if(a >= c && a < d){
+                return 10
+            }else if(a >= d && a < e){
+                return 13
+            }else{
+                return 17
+            }
         },
 
         setMapLayers: function() {
@@ -22,22 +69,60 @@ var app = (function(){
             //Set layers object
             layers = {
                 basemap: L.mapbox.tileLayer('nkoech.c858c345').addTo(map),
-                m_watertype: L.geoJson(m_watertype),
-                m_watercost: L.geoJson(m_watercost),
-                m_waterdist: L.geoJson(m_waterdist),
-                m_storetank: L.geoJson(m_storetank),
-                m_jericanused: L.geoJson(m_jericanused)
+
+                m_watertype: L.geoJson(m_watertype, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(
+                                latlng,
+                                households.setCircleStyle(6, households.setFillColor(feature.properties.water_type, "m_watertype"), "#fff", 3, 1)
+                        )
+                    }
+                }),
+
+                m_watercost: L.geoJson(m_watercost, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(
+                                latlng,
+                                households.setCircleStyle(households.setProportionalSymbol(feature.properties.water_cost, 30, 35, 40, 45), "#ff0000", "#fff", 3, 1)
+                        )
+                    }
+                }),
+
+                m_waterdist: L.geoJson(m_waterdist, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(
+                            latlng,
+                            households.setCircleStyle(households.setProportionalSymbol(feature.properties.dist_water, 3, 6, 9, 12), "#800080", "#fff", 3, 1)
+                        )
+                    }
+                }),
+
+                m_storetank: L.geoJson(m_storetank, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(latlng,
+                            households.setCircleStyle(6, households.setFillColor(feature.properties.store_tank, "m_storetank"), "#fff", 3, 1)
+                        )
+                    }
+                }),
+
+                m_jericanused: L.geoJson(m_jericanused, {
+                    pointToLayer: function(feature, latlng) {
+                        return L.circleMarker(
+                            latlng,
+                            households.setCircleStyle(households.setProportionalSymbol(feature.properties.jericans_used, 3, 5, 7, 9), "#800000", "#fff", 3, 1)
+                        )
+                    }
+                })
             };
         },
 
-       mapComponent: function() {
-
-           layers.basemap.addTo(map); //Add base layer
-           households.setMapComponent(layers.m_watertype, 'm_watertype', 'Water Source Type', 1);
-           households.setMapComponent(layers.m_watercost, 'm_watercost', '20L Jerrican Cost', 2);
-           households.setMapComponent(layers.m_waterdist, 'm_waterdist', 'Water Source Distance', 3);
-           households.setMapComponent(layers.m_storetank, 'm_storetank', 'Storage Tank Access', 4);
-           households.setMapComponent(layers.m_jericanused, 'm_jericanused', 'Jericans Used Daily', 5);
+        mapComponent: function(){
+            layers.basemap.addTo(map); //Add base layer
+            households.setMapComponent(layers.m_watertype, 'm_watertype', 'Water Source Type', 1);
+            households.setMapComponent(layers.m_watercost, 'm_watercost', '20L Jerrican Cost', 2);
+            households.setMapComponent(layers.m_waterdist, 'm_waterdist', 'Water Source Distance', 3);
+            households.setMapComponent(layers.m_storetank, 'm_storetank', 'Storage Tank Access', 4);
+            households.setMapComponent(layers.m_jericanused, 'm_jericanused', 'Jericans Used Daily', 5);
         },
 
         setMapComponent: function(fLayer, elId, name, zIndex){
