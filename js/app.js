@@ -12,7 +12,7 @@ var app = (function(){
 
             //Set map options
             map = L.mapbox.map('map', null, {
-                maxZoom: 19,
+                maxZoom: 14,
                 minZoom: 9
             }).setView([-1.4462651532861726,37.3260498046875], 11);
         },
@@ -64,6 +64,39 @@ var app = (function(){
             }
         },
 
+        onEachFeature: function(feature, layer, v, p, u){
+            popupOptions = {maxWidth:300};
+            if (feature.properties) {
+                layer.bindPopup(
+                        "<b>Water Access Information </b> " +
+                        "<hr>" +
+                        "<b>Name:</b> " + feature.properties.res_name +
+                        "<br><b>" + p + ": </b>" + feature.properties[v] + u
+                        ,popupOptions
+                );
+                layer.on('mouseover', function(e) {
+                    //open popup;
+                    if (map) {
+                        popup = L.popup()
+                            .setLatLng(e.latlng)
+                            .setContent(
+                                "<b>Respondent </b> " +
+                                "<hr>" +
+                                "<b>Name:</b> " + feature.properties.res_name, popupOptions
+                            )
+                            .openOn(map);
+                    }
+                });
+                layer.on('mouseout', function(e) {
+                    //close popup;
+                    if (popup && map) {
+                        map.closePopup(popup);
+                        popup = null;
+                    }
+                });
+            }
+        },
+
         setMapLayers: function() {
 
             //Set layers object
@@ -76,6 +109,9 @@ var app = (function(){
                                 latlng,
                                 waterAccess.setCircleStyle(6, waterAccess.setFillColor(feature.properties.water_type, "m_watertype"), "#fff", 3, 1)
                         )
+                    },
+                    onEachFeature: function(feature, layer) {
+                        waterAccess.onEachFeature(feature, layer, "water_type", "Water Source", "");
                     }
                 }),
 
@@ -85,6 +121,9 @@ var app = (function(){
                                 latlng,
                                 waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.water_cost, 30, 35, 40, 45), "#ff0000", "#fff", 3, 1)
                         )
+                    },
+                    onEachFeature: function(feature, layer) {
+                        waterAccess.onEachFeature(feature, layer, "water_cost", "20L Jerican Cost", " Ksh");
                     }
                 }),
 
@@ -94,6 +133,9 @@ var app = (function(){
                             latlng,
                             waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.dist_water, 3, 6, 9, 12), "#800080", "#fff", 3, 1)
                         )
+                    },
+                    onEachFeature: function(feature, layer) {
+                        waterAccess.onEachFeature(feature, layer, "dist_water", "Water Distance", " Km");
                     }
                 }),
 
@@ -102,6 +144,9 @@ var app = (function(){
                         return L.circleMarker(latlng,
                             waterAccess.setCircleStyle(6, waterAccess.setFillColor(feature.properties.store_tank, "m_storetank"), "#fff", 3, 1)
                         )
+                    },
+                    onEachFeature: function(feature, layer) {
+                        waterAccess.onEachFeature(feature, layer, "store_tank", "Access Storage Tank ", "");
                     }
                 }),
 
@@ -111,6 +156,9 @@ var app = (function(){
                             latlng,
                             waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.jericans_used, 3, 5, 7, 9), "#800000", "#fff", 3, 1)
                         )
+                    },
+                    onEachFeature: function(feature, layer) {
+                        waterAccess.onEachFeature(feature, layer, "jericans_used", "Jerricans Used Daily", "");
                     }
                 })
             };
