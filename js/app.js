@@ -83,7 +83,7 @@ var app = (function(){
                                 "<b>Respondent </b> " +
                                 "<hr>" +
                                 "<b>Name:</b> " + feature.properties.res_name +
-                                "<br><small style='color:#336699'>Click for more...</small>", popupOptions
+                                "<br><small style='color:#336699'>Click point for more...</small>", popupOptions
                             )
                             .openOn(map);
                     }

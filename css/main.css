@@ -48,13 +48,15 @@
     padding: 5px 20px 5px 10px;
     text-transform: uppercase;
     transition: color 0.3s linear 0s;
-}*/
-/*.legend-title {
+}
+
+.legend-title {
     text-align: left;
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 90%;
 }
+
 .legend-scale ul {
     margin: 0;
     margin-bottom: 5px;
@@ -62,6 +64,7 @@
     float: left;
     list-style: none;
 }
+
 .legend-scale ul li {
     font-size: 80%;
     list-style: none;
@@ -69,6 +72,7 @@
     line-height: 18px;
     margin-bottom: 2px;
 }
+
 ul.legend-labels li span {
     display: block;
     float: left;
@@ -78,11 +82,13 @@ ul.legend-labels li span {
     margin-left: 0;
     border: 1px solid #999;
 }
+
 .legend-source {
     font-size: 70%;
     color: #999;
     clear: both;
 }
+
 .legend-source a {
     color: #777;
 }
@@ -92,12 +98,14 @@ ul.legend-labels li span {
     border-width: 1px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
+
 .map-tooltip {
     border-color: rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.45) #666;
     border-style: solid;
     border-width: 1px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
+
 hr {
     border: 0;
     height: 0;
@@ -105,14 +113,29 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }*/
 
+#legend {
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgba(21, 109, 141, 0.3);
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 170px;
+    padding: 10px;
+    position:absolute;
+    bottom: 15px;
+    right:15px;
+    z-index:1;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
     width: 200px;
     padding: 10px;
     position:absolute;
-    top:15px;
-    right:20px;
+    top:13px;
+    right:25px;
     z-index:1;
 }
 
@@ -189,7 +212,6 @@ hr {
     border-top: 1px solid #ccc;
     bottom: 0;
     display: block;
-    font-size: 11px;
     height: 8%;
     left: 0;
     line-height: 16px;
@@ -197,17 +219,6 @@ hr {
     padding: 10px 0;
     position: absolute;
     width: 100%;
-}
-
-#footer p {
-    /*color: #383128;*/
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-}
-
-#footer a {
-    color: #336699;
-    text-decoration: none;
 }
 
 strong, b, strong *, b * { font-weight: bold !important; }
