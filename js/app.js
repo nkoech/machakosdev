@@ -82,7 +82,8 @@ var app = (function(){
                             .setContent(
                                 "<b>Respondent </b> " +
                                 "<hr>" +
-                                "<b>Name:</b> " + feature.properties.res_name, popupOptions
+                                "<b>Name:</b> " + feature.properties.res_name +
+                                "<br><small style='color:#336699'>Click for more...</small>", popupOptions
                             )
                             .openOn(map);
                     }
