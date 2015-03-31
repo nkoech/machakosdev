@@ -65,21 +65,33 @@ var app = (function(){
         },
 
         onEachFeature: function(feature, layer, v, p, u){
-            popupOptions = {maxWidth:300};
+            var popupOptions = {maxWidth:300};
+
             if (feature.properties) {
-                layer.bindPopup(
-                        "<b>Water Access Information </b> " +
-                        "<hr>" +
-                        "<b>Name:</b> " + feature.properties.res_name +
-                        "<br><b>" + p + ": </b>" + feature.properties[v] + u
-                        ,popupOptions
-                );
+
+                //onclick  popup
+                layer.onclick = (function(layer){
+                    console.log("hahahahaha");
+                    layer.bindPopup(
+                            "<b>Water Access Information </b> " +
+                            "<hr>" +
+                            "<b>Name:</b> " + feature.properties.res_name +
+                            "<br><b>" + p + ": </b>" + feature.properties[v] + u
+                        , popupOptions
+                    );
+                })(layer);
+
                 layer.on('mouseover', function(e) {
 
-                    targetFeature  = e.target;
-
-                    //open popup;
                     if (map) {
+                        //highlight feature
+                        e.target.setStyle({
+                            color: '#666',
+                            dashArray: '',
+                            fillOpacity: 0.7,
+                            weight: 3
+                        });
+                        //open popup;
                         popup = L.popup()
                             .setLatLng(e.latlng)
                             .setContent(
@@ -90,20 +102,12 @@ var app = (function(){
                             )
                             .openOn(map);
 
-                        targetFeature.setStyle({
-                            color: '#666',
-                            dashArray: '',
-                            fillOpacity: 0.7,
-                            weight: 3
-                            /*opacity: 0.3,
-                            fillOpacity: 0.9*/
-                        });
-
                         if (!L.Browser.ie && !L.Browser.opera) {
-                            targetFeature.bringToFront();
+                            e.target.bringToFront();
                         }
                     }
                 });
+
                 layer.on('mouseout', function(e) {
                     //close popup;
                     if (popup && map) {
