@@ -113,21 +113,6 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }*/
 
-#legend {
-    background-color: #fff;
-    box-shadow: 0 0 0 5px rgba(21, 109, 141, 0.3);
-    border-radius: 3px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
-    height: 170px;
-    padding: 10px;
-    position:absolute;
-    bottom: 15px;
-    right:15px;
-    z-index:1;
-}
-
 .container {
     margin-left: auto;
     margin-right: auto;
