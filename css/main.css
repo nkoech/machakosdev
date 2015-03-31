@@ -182,10 +182,20 @@ ul.legend-labels-prop li span {
 .legend-source a {
     color: #777;
 }
+.leaflet-control{
+    box-shadow: 0 0 0 5px rgba(21, 109, 141, 0.3);
+}
+.leaflet-top .leaflet-control {
+    margin-top: 20px;
+}
+.leaflet-left .leaflet-control {
+    margin-left: 20px;
+}
 .wax-legends {
     box-shadow: 0 0 0 5px rgba(21, 109, 141, 0.3);
     border-radius: 3px;
     width: auto;
+    right:10px;
 }
 
 .container {
@@ -194,8 +204,8 @@ ul.legend-labels-prop li span {
     width: 200px;
     padding: 10px;
     position:absolute;
-    top:13px;
-    left:55px;
+    top:10px;
+    left:62px;
     z-index:1;
 }
 

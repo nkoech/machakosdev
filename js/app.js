@@ -75,6 +75,9 @@ var app = (function(){
                         ,popupOptions
                 );
                 layer.on('mouseover', function(e) {
+
+                    targetFeature  = e.target;
+
                     //open popup;
                     if (map) {
                         popup = L.popup()
@@ -86,6 +89,19 @@ var app = (function(){
                                 "<br><small style='color:#336699'>Click point for more...</small>", popupOptions
                             )
                             .openOn(map);
+
+                        targetFeature.setStyle({
+                            color: '#666',
+                            dashArray: '',
+                            fillOpacity: 0.7,
+                            weight: 3
+                            /*opacity: 0.3,
+                            fillOpacity: 0.9*/
+                        });
+
+                        if (!L.Browser.ie && !L.Browser.opera) {
+                            targetFeature.bringToFront();
+                        }
                     }
                 });
                 layer.on('mouseout', function(e) {
@@ -94,6 +110,9 @@ var app = (function(){
                         map.closePopup(popup);
                         popup = null;
                     }
+                    //console.log(["m_watertype"]);
+
+                    //.resetStyle(e.target);
                 });
             }
         },
@@ -155,7 +174,7 @@ var app = (function(){
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(
                             latlng,
-                            waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.jericans_used, 3, 5, 7, 9), "#800000", "#fff", 3, 1)
+                            waterAccess.setCircleStyle(waterAccess.setProportionalSymbol(feature.properties.jericans_used, 3, 5, 7, 9), "#C15022", "#fff", 3, 1)
                         )
                     },
                     onEachFeature: function(feature, layer) {
