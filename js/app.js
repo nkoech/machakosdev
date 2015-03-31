@@ -167,19 +167,20 @@ var app = (function(){
 
         mapComponent: function(){
             layers.basemap.addTo(map); //Add base layer
-            waterAccess.setMapComponent(layers.m_watertype, 'm_watertype', 'Water Source Type', 1);
-            waterAccess.setMapComponent(layers.m_watercost, 'm_watercost', '20L Jerrican Cost', 2);
-            waterAccess.setMapComponent(layers.m_waterdist, 'm_waterdist', 'Water Source Distance', 3);
-            waterAccess.setMapComponent(layers.m_storetank, 'm_storetank', 'Storage Tank Access', 4);
-            waterAccess.setMapComponent(layers.m_jericanused, 'm_jericanused', 'Jericans Used Daily', 5);
+            waterAccess.setMapComponent(layers.m_watertype, 'm_watertype', 'Water Source Type', 1, 'm_watertype_legend');
+            waterAccess.setMapComponent(layers.m_watercost, 'm_watercost', '20L Jerrican Cost', 2, 'm_watercost_legend');
+            waterAccess.setMapComponent(layers.m_waterdist, 'm_waterdist', 'Water Source Distance', 3, 'm_waterdist_legend');
+            waterAccess.setMapComponent(layers.m_storetank, 'm_storetank', 'Storage Tank Access', 4, 'm_storetank_legend');
+            waterAccess.setMapComponent(layers.m_jericanused, 'm_jericanused', 'Jericans Used Daily', 5, 'm_jericanused_legend');
         },
 
-        setMapComponent: function(fLayer, elId, name, zIndex){
+        setMapComponent: function(fLayer, elId, name, zIndex, legend){
             var elMenu = document.getElementById('menu-ui');
             var elLink = document.createElement('a');
 
             if(zIndex == 1){
                 fLayer.setZIndex(zIndex).addTo(map); // Add initial feature layer
+                map.legendControl.addLegend(document.getElementById(legend).innerHTML);
                 elLink.href = '#';
                 elLink.id = elId;
                 elLink.className = 'active';
@@ -201,13 +202,16 @@ var app = (function(){
                 e.stopPropagation();
                 if(this.className != "active"){
                     for (i = 0; i < elAll.length; i++) {
+                        map.legendControl.removeLegend(document.getElementById(elAll[i].id + "_legend").innerHTML);
                         map.removeLayer(layers[elAll[i].id]); // Remove feature layer
                         elAll[i].className = '';
                     }
 
                     fLayer.addTo(map);
+                    map.legendControl.addLegend(document.getElementById(legend).innerHTML);
                     this.className = 'active';
                 }else{
+                    map.legendControl.removeLegend(document.getElementById(legend).innerHTML);
                     map.removeLayer(fLayer);
                     this.className = '';
                 }

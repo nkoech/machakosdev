@@ -113,6 +113,81 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }*/
 
+.legend-title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.legend-scale ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.legend-scale ul li {
+    font-size: 11px;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+}
+
+ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 1px solid #999;
+}
+
+
+
+.legend-scale-prop ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.legend-scale-prop ul li {
+    font-size: 11px;
+    list-style: none;
+    margin-left: 0;
+    line-height: 15px;
+    margin-bottom: 20px;
+}
+
+ul.legend-labels-prop li span {
+    display: block;
+    float: left;
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+
+
+.legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+}
+
+.legend-source a {
+    color: #777;
+}
+.wax-legends {
+    box-shadow: 0 0 0 5px rgba(21, 109, 141, 0.3);
+    border-radius: 3px;
+    width: auto;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -120,7 +195,7 @@ hr {
     padding: 10px;
     position:absolute;
     top:13px;
-    right:25px;
+    left:55px;
     z-index:1;
 }
 
