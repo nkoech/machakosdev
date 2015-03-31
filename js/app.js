@@ -71,7 +71,6 @@ var app = (function(){
 
                 //onclick  popup
                 layer.onclick = (function(layer){
-                    console.log("hahahahaha");
                     layer.bindPopup(
                             "<b>Water Access Information </b> " +
                             "<hr>" +
@@ -84,13 +83,15 @@ var app = (function(){
                 layer.on('mouseover', function(e) {
 
                     if (map) {
+
                         //highlight feature
-                        e.target.setStyle({
+                        /*e.target.setStyle({
                             color: '#666',
                             dashArray: '',
                             fillOpacity: 0.7,
                             weight: 3
-                        });
+                        });*/
+
                         //open popup;
                         popup = L.popup()
                             .setLatLng(e.latlng)
@@ -109,14 +110,13 @@ var app = (function(){
                 });
 
                 layer.on('mouseout', function(e) {
+
                     //close popup;
                     if (popup && map) {
                         map.closePopup(popup);
                         popup = null;
                     }
-                    //console.log(["m_watertype"]);
-
-                    //.resetStyle(e.target);
+                    //resetStyle(e.target);
                 });
             }
         },
