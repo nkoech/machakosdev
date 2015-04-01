@@ -13,10 +13,44 @@
     <script src="res/plugins/papercollapse/paper-collapse.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var str=location.href.toLowerCase();
+            $(".navigation li a").each(function() {
+                if (str.indexOf(this.href.toLowerCase()) > -1) {
+                    $("li.highlight").removeClass("highlight");
+                    $(this).parent().addClass("highlight");
+                }
+            });
+        })
+    </script>
 </head>
 <body hola-ext-player="1">
     <div id="header">
-        <br><h2 style='text-align: center;'> HEADER SECTION </h2>
+        <div class="row">
+            <div class="grid-1">
+                <a class="aid-map-logo" href="href='http://www.machakosgovernment.com/">
+                    <img width="65" height="65" src="/img/logo.gif" alt="Machakos County map logo">
+                </a>
+            </div>
+            <div class="grid-2">
+                <h1>Machakos County</h1>
+            </div>
+            <div class="grid-3">
+                <nav>
+                    <ul class="navigation">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="#">ABOUT APP</a></li>
+                        <li class="highlight"><a href="#">WHAT'S NEW</a></li>
+                        <li><a href="#">THE COUNTY</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- <br><h2 style='text-align: center;'> HEADER SECTION </h2> -->
         <!-- <a class="icon ciat" href="http://ciat.cgiar.org/">&copy; CIAT 2015</a>
         <div id="share">
             <span class='st_facebook_hcount' displayText='Facebook'></span>

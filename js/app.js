@@ -14,7 +14,7 @@ var app = (function(){
             map = L.mapbox.map('map', null, {
                 maxZoom: 14,
                 minZoom: 9
-            }).setView([-1.4462651532861726,37.3260498046875], 11);
+            }).setView([-1.456218319528783,37.327423095703125], 11);
         },
 
         setCircleStyle: function(a, b, c, d, e){

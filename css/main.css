@@ -1,11 +1,82 @@
 #header {
-    background: none repeat scroll 0 0 #fff;
+    /*background: none repeat scroll 0 0 #fff;*/
     /*box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);*/
     box-shadow: 0 5px 0 rgba(21, 109, 141, 0.3);
     height: 70px;
     position: relative;
     /*width: 100%;*/
     z-index: 100;
+}
+
+.row {
+    display: block;
+    margin: 0 auto;
+    width: 940px;
+}
+
+.grid-1 {
+    width: 8%;
+    float:left;
+}
+
+.macha-map-logo {
+    float: left;
+    margin-top: 10px;
+}
+
+.grid-2 {
+    display: block;
+    width: 15%;
+    float: left;
+    position: relative;
+}
+
+.grid-2 h1{
+    float: left;
+    margin-top: 4px;
+    margin-left: 5px;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #666666;
+}
+
+.grid-3 {
+    width: 72%;
+    float:left;
+    overflow: hidden;
+}
+
+a, a:visited {
+    color:#000;
+    font-weight:bold;
+    text-decoration:none;
+}
+ul.navigation {
+    display: block;
+    margin-top: 22px;
+    margin-left: 50px;
+    text-align: left;
+    list-style:none;
+    font: 0.75em/1.5em normal Tahoma, Verdana, Geneva, sans-serif;
+}
+
+ul.navigation li {
+    display: inline-block;
+    margin: 0 1%;
+    text-align: center;
+    text-transform: uppercase;
+    background:#ececec;
+    padding:5px 15px;
+    /*border-radius: 15px;*/
+    position: relative;
+}
+ul.navigation li.highlight {
+    background:#666;
+}
+ul.navigation li.highlight a {
+    color:#f5f5f5;
+    cursor:default;
 }
 
 /*#header {
