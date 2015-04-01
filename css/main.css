@@ -1,10 +1,7 @@
 #header {
-    /*background: none repeat scroll 0 0 #fff;*/
-    /*box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);*/
     box-shadow: 0 5px 0 rgba(21, 109, 141, 0.3);
     height: 70px;
     position: relative;
-    /*width: 100%;*/
     z-index: 100;
 }
 
@@ -78,111 +75,6 @@ ul.navigation li.highlight a {
     color:#f5f5f5;
     cursor:default;
 }
-
-/*#header {
-    box-shadow: 0 5px 0 rgba(21, 109, 141, 0.3);
-    font-size: 14px;
-    font-weight: 700;
-}
-
-#header {
-    background: none repeat scroll 0 0 #fff;
-    height: 134px;
-    position: relative;
-    z-index: 100;
-}*/
-
-/*a.ciat {
-    background: url("../img/title.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    height: 50px;
-    left: 0;
-    position: absolute;
-    text-indent: -999em;
-    width: 624px;
-    bottom: 7px;
-}*/
-/*#share {
-    position: absolute;
-    right: 3px;
-    top: 14px;
-}*/
-/*.title {
-    color: #b3b3b3;
-    display: block;
-    font-family: "AlternateGothicLTNo3Regular",Arial,sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    height: 40px;
-    line-height: 40px;
-    margin: 0;
-    padding: 5px 20px 5px 10px;
-    text-transform: uppercase;
-    transition: color 0.3s linear 0s;
-}
-
-.legend-title {
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 90%;
-}
-
-.legend-scale ul {
-    margin: 0;
-    margin-bottom: 5px;
-    padding: 0;
-    float: left;
-    list-style: none;
-}
-
-.legend-scale ul li {
-    font-size: 80%;
-    list-style: none;
-    margin-left: 0;
-    line-height: 18px;
-    margin-bottom: 2px;
-}
-
-ul.legend-labels li span {
-    display: block;
-    float: left;
-    height: 16px;
-    width: 30px;
-    margin-right: 5px;
-    margin-left: 0;
-    border: 1px solid #999;
-}
-
-.legend-source {
-    font-size: 70%;
-    color: #999;
-    clear: both;
-}
-
-.legend-source a {
-    color: #777;
-}
-.wax-legends {
-    border-color: rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.45) #666;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-
-.map-tooltip {
-    border-color: rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.45) #666;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-}
-
-hr {
-    border: 0;
-    height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}*/
 
 .legend-title {
     text-align: left;
@@ -360,6 +252,86 @@ ul.legend-labels-prop li span {
     padding: 10px 0;
     position: absolute;
     width: 100%;
+}
+
+.grid-4 {
+    width: 29%;
+    float:left;
+    overflow: hidden;
+}
+
+ul.usefull-links {
+    display: block;
+    margin-top: 15px;
+    list-style:none;
+    font: 0.75em/1.5em normal Tahoma, Verdana, Geneva, sans-serif;
+}
+
+ul.usefull-links li {
+    display: inline-block;
+    margin: 0 1%;
+    text-align: left;
+    padding: 2px 5px;
+    position: relative;
+}
+
+ul.usefull-links li a {
+    font-size:12px;
+    color:#778899;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.grid-5 {
+    float:left;
+    overflow: hidden;
+}
+
+.vert-separator {
+    display: inline-block;
+    background: #888;
+    margin-top: 17px;
+    height: 18px;
+    width: 1px;
+}
+
+.grid-6 {
+    width: 28%;
+    float:left;
+    overflow: hidden;
+}
+
+.grid-6 .disc-footer {
+    display: block;
+    margin-left: 12px;
+    margin-top: 17px;
+    text-align: left;
+}
+
+.grid-6 .disc-footer a {
+    font-size:12px;
+    color:#778899;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.grid-7 {
+    float:left;
+    overflow: hidden;
+}
+
+.grid-8 {
+    float: left;
+    margin-left: 13px;
+    margin-top: 14px;
+    overflow: hidden;
+    width: 30%;
+}
+
+.grid-8 {
+    float: left;
+    margin-left: 13px;
+    margin-top: 14px;
+    overflow: hidden;
+    width: 30%;
 }
 
 strong, b, strong *, b * { font-weight: bold !important; }
