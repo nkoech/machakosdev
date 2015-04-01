@@ -1,0 +1,58 @@
+_prefs: 
+  baselayer: ''
+  mapid: nkoech.c858c345
+  saveCenter: false
+_properties: 
+  bridge: 
+    "group-by": data
+attribution: "<a href='http://www.machakosgovernment.com/>Machakos County/a> <a href='https://www.mapbox.com/>Mapbox</a> "
+bounds: 
+  - -180
+  - -85
+  - 180
+  - 85
+center: 
+  - 37.532
+  - -1.2139
+  - 9
+description: Demonstartion on the power of Mapbox on rendering points collected in Machakos county, Kenya
+format: "png8:m=h:c=64"
+interactivity_layer: ''
+layers: 
+  - landcover
+  - landuse
+  - contour.line
+  - hillshade
+  - waterway
+  - water
+  - aeroway
+  - barrier_line
+  - building
+  - landuse_overlay
+  - tunnel
+  - road
+  - bridge
+  - admin
+  - country_label_line
+  - country_label
+  - marine_label
+  - state_label
+  - place_label
+  - water_label
+  - poi_label
+  - road_label
+  - waterway_label
+  - housenum_label
+  - contour.label
+maxzoom: 19
+minzoom: 9
+name: machakosdev
+source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5"
+styles: 
+  - vars.mss
+  - bg.mss
+  - road.mss
+  - label.mss
+  - poi_classic.mss
+  - terrain.mss
+template: ''
