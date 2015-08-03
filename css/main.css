@@ -323,15 +323,7 @@ ul.usefull-links li a {
     margin-left: 13px;
     margin-top: 14px;
     overflow: hidden;
-    width: 30%;
-}
-
-.grid-8 {
-    float: left;
-    margin-left: 13px;
-    margin-top: 14px;
-    overflow: hidden;
-    width: 30%;
+    width: 40%;
 }
 
 strong, b, strong *, b * { font-weight: bold !important; }
