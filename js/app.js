@@ -7,7 +7,7 @@ var app = (function(){
 
         initMap: function() {
 
-            //Get data  token
+            //Get data  token from mapbox
             L.mapbox.accessToken = 'pk.eyJ1IjoibmtvZWNoIiwiYSI6IllzVF8ya2sifQ.D5WtsqKGS6ulGVPrBwV9mA';
 
             //Set map options
