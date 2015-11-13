@@ -326,5 +326,29 @@ ul.usefull-links li a {
     width: 40%;
 }
 
+.share-buttons li{
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+/*.grid-8 .share-buttons
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+.share-buttons li { display: inline; }
+
+.share-buttons li a
+{
+    text-decoration: none;
+    padding: .2em 1em;
+    color: #fff;
+    background-color: #036;
+}*/
+
 strong, b, strong *, b * { font-weight: bold !important; }
 em, i, em *, i * { font-style: italic !important; }
